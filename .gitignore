@@ -1,0 +1,8 @@
+*.idea
+sftp-config.json
+.DS_Store
+
+node_modules
+bower
+build
+temp-build
