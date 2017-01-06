@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="./ulog.js"></script>
+<script>
+    window.ulog = window.ulog || function(){};
+    //白屏时间
+    ulog('speed.set', 'ht', +new Date());
+</script>
+</head>
+<body>
+    <h4>
+        <!-- 自定义的点击项目 -->
+        <span ulog-name="test" class="fdsfsd">
+            <div><a href="http://www.baidu.com" target="_blank">link1</a></div>
+            <p><a href="http://hetu.baidu.com" target="_blank">link2</a></p>
+            <div><a href="http://uaq.baidu.com" target="_blank">link3</a></div>
+            <div style="margin-top:10px">
+                <!-- 自定义的点击监控点 -->
+                <span ulog-action="aaaaa">custom monkey text</span>
+            </div>
+            <div style="background:#000;margin-top:10px;"><img width="150" src="https://ss0.bdstatic.com/5a21bjqh_Q23odCf/static/superplus/img/logo_white_ee663702.png"></div>
+            <!--首屏时间-->
+            <script>
+                ulog('speed.set', 'fs', +new Date());
+            </script>
+            <iframe style="width:100%;margin-top:10px;" id="testIframe" src="http://babel.baidu.com"></iframe>
+        </span>
+    </h4>
+    <script>
+    //dom ready
+    ulog('speed.set', 'drt', +new Date());
+    ulog('load', function() {
+        //页面加载完成时间
+        ulog('speed.set', 'lt', +new Date());
+        //产品线Id
+        ulog('set', 'tid', 234324, true);
+        //页面Id
+        ulog('set', 'pid', 123, true);
+        ulog('set', 'alias', {
+            speed: './speed.js',
+            monkey: './monkey.js',
+            feature: './feature.js',
+            csp: './csp.js'
+        });
+        //设置抽样率  0 - 1
+        ulog('speed.set', 'sample', 1);
+        ulog('monkey.set', 'sample', 1);
+        ulog('feature.set', 'sample', 1);
+        ulog('csp.set', 'sample', 1);
+        // 设置白名单过滤规则
+        ulog('csp.set', 'config', [
+            // 监测*.baidu.com
+            {match: '*.baidu.com', monitor: true, type: 'all'},
+            // 不监控12.7.*
+            {match: '127.*', monitor: false, type: 'all'},
+            // 监测所有页面
+            {match: '*', monitor: true, type: 'all'}
+        ]);
+        // 初始化探针
+        ulog('init', ['speed', 'monkey', 'feature', 'csp']);
+    });
+
+    // 自定义打点
+    document.getElementById('testIframe').addEventListener('load', function () {
+        ulog('speed.set', 'c_frameLoad', +new Date());
+    }, false)
+    </script>
+</body>
+</html>

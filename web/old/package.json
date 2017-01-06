@@ -1,0 +1,30 @@
+{
+  "name": "hatch",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "express-session": "~1.7.4",
+    "request": "~2.0.1",
+    "async": "~0.2.9",
+    "connect-redis": "~2.0.0",
+    "redis": "*"
+  },
+  "devDependencies": {
+    "code-review": "file:../../../../../var/folders/n8/qq8jln_11pl81lcrd29h8kkr0000gn/T/npm-19474-1c80a09b/git-cache-48d3ee9af7d5/b2a23ef16132bbf61267609b7f2069b7dae34058",
+    "del": "^1.1.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-md5-plus": "^0.1.6",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.1.0"
+  }
+}
